@@ -1,7 +1,8 @@
 <template>
   <div v-theme:column ="'narrow'" id="show-blog">
       <h1>All Blog Articles</h1>
-      <div v-for="blog in blogs" class="single-blog">
+      <input type="text" v-model="search" placeholder="search blogs"/>
+      <div v-for="blog in filteredBlog" class="single-blog">
           <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
           <article>{{blog.body | snippet}}</article>
       </div>
@@ -13,7 +14,10 @@
 export default {
   data() {
     return {
-      blogs: [] //tworzymy pusta tablice do ktorej pobierzemy dane za pomoca GET request ze strony jason placeholder
+      //tworzymy pusta tablice do ktorej pobierzemy dane za pomoca GET request ze strony jason placeholder
+      blogs: [],
+      //custom search filter - do wyszukiwania okreslonego bloga
+      search: ""
     };
   },
   methods: {},
@@ -24,6 +28,14 @@ export default {
         console.log(data);
         this.blogs = data.body.slice(0, 10); //wybieramy tylko pierwsze 10 elementow z tablicy (ze strony json)
       });
+  },
+  //dodanie metody typu computed - stworzenie search boxa do wyszukiwania blogow z okreslonymi znakami w tytule//zamiana tablicy blogs w dyrektywie v-for z template na filteredBlog
+  computed:{
+    filteredBlog: function(){
+      return this.blogs.filter((blog) => {
+        return blog.title.match(this.search);
+      });
+    }
   }
 };
 </script>
