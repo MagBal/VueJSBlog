@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import searchMixin from '../mixins/searchMixin';
+import searchMixin from "../mixins/searchMixin";
 
 export default {
   data() {
@@ -32,9 +32,7 @@ export default {
       });
   },
   //dodanie metody typu computed - stworzenie search boxa do wyszukiwania blogow z okreslonymi znakami w tytule//zamiana tablicy blogs w dyrektywie v-for z template na filteredBlog
-  computed: {
-    
-  },
+  computed: {},
   //filter locally
   filters: {
     toUppercase(value) {
@@ -45,7 +43,11 @@ export default {
   directives: {
     rainbow: {
       bind(el, binding, vnode) {
-        el.style.color = "#" + Math.random().toString().slice(2, 8);
+        el.style.color =
+          "#" +
+          Math.random()
+            .toString()
+            .slice(2, 8);
       }
     }
   },
@@ -62,6 +64,6 @@ export default {
   padding: 20px;
   margin: 20px 0;
   box-sizing: border-box;
-  background-color: greenyellow;
+  background: #eee;
 }
 </style>

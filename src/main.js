@@ -11,7 +11,8 @@ Vue.use(VueRouter);
 
 //tworzenie nowej instacji VueRouter
 const router = new VueRouter({
-    routes: Routes
+    routes: Routes,
+    mode: 'history'
 });
 
 //custom directives globally

@@ -57,14 +57,14 @@ export default {
 </script>
 
 <style>
-#show-blog {
-  max-width: 800px;
-  margin: 0 auto;
+#show-blogs{
+    max-width: 800px;
+    margin: 0px auto;
 }
-.single-blog {
-  padding: 20px;
-  margin: 20px 0;
-  box-sizing: border-box;
-  background-color: greenyellow;
+.single-blog{
+    padding: 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    background: #eee;
 }
 </style>
