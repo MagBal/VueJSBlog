@@ -30,11 +30,25 @@ export default {
       });
   },
   //dodanie metody typu computed - stworzenie search boxa do wyszukiwania blogow z okreslonymi znakami w tytule//zamiana tablicy blogs w dyrektywie v-for z template na filteredBlog
-  computed:{
-    filteredBlog: function(){
-      return this.blogs.filter((blog) => {
+  computed: {
+    filteredBlog: function() {
+      return this.blogs.filter(blog => {
         return blog.title.match(this.search);
       });
+    }
+  },
+  //filter locally
+  filters: {
+    toUppercase(value) {
+      return value.toUpperCase();
+    }
+  },
+  //directives locally
+  directives: {
+    rainbow: {
+      bind(el, binding, vnode) {
+        el.style.color = "#" + Math.random().toString().slice(2, 8);
+      }
     }
   }
 };
@@ -42,13 +56,13 @@ export default {
 
 <style>
 #show-blog {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
-.single-blog{
-    padding: 20px;
-    margin: 20px 0;
-    box-sizing: border-box;
-    background-color: greenyellow;
+.single-blog {
+  padding: 20px;
+  margin: 20px 0;
+  box-sizing: border-box;
+  background-color: greenyellow;
 }
 </style>
