@@ -1,8 +1,9 @@
 <template>
   <div>
     <!-- <add-blog></add-blog> -->
-    <show-blog></show-blog>
-    <list-blog></list-blog>
+    <!-- <show-blog></show-blog>
+    <list-blog></list-blog> -->
+    <router-view></router-view>
   </div>
 </template>
 

@@ -1,9 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
+import VueRouter from 'vue-router'
+import Routes from './routes'
 
 //uzycie plugina vue-resource
 Vue.use(VueResource);
+//uzycie plugina vue-router
+Vue.use(VueRouter);
+
+//tworzenie nowej instacji VueRouter
+const router = new VueRouter({
+    routes: Routes
+});
 
 //custom directives globally
 // Vue.directive('rainbow', {
@@ -37,5 +46,6 @@ Vue.filter('snippet', function(value) {
 
 new Vue({
     el: '#app',
-    render: h => h(App)
+    render: h => h(App),
+    router: router
 })
