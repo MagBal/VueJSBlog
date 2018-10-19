@@ -19,7 +19,7 @@ export default {
     "add-blog": addBlog,
     "show-blog": showBlog,
     "list-blog": listBlog,
-    'app-header': header
+    "app-header": header
   },
   data() {
     return {};
@@ -29,8 +29,9 @@ export default {
 </script>
 
 <style>
-body{
-    margin: 0;
-    font-family: 'Helvetica', sans-serif;
+body {
+  margin: 0;
+  font-family: "Helvetica", sans-serif;
+  cursor: pointer;
 }
 </style>

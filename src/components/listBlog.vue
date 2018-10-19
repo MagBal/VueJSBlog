@@ -4,13 +4,13 @@
       <input type="text" v-model="search" placeholder="search blogs"/>
       <div v-for="blog in filteredBlog" class="single-blog">
           <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
-                </div>
+        </div>
     
   </div>
 </template>
 
 <script>
-import searchMixin from '../mixins/searchMixin';
+import searchMixin from "../mixins/searchMixin";
 
 export default {
   data() {
@@ -24,16 +24,16 @@ export default {
   methods: {},
   created() {
     this.$http
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("https://nn-vue-blog-2e775.firebaseio.com/posts" + this.id + ".json")
       .then(function(data) {
-        console.log(data);
-        this.blogs = data.body.slice(0, 10); //wybieramy tylko pierwsze 10 elementow z tablicy (ze strony json)
+        return data.json();
+      })
+      .then(function(data) {
+        this.blog.data;
       });
   },
   //dodanie metody typu computed - stworzenie search boxa do wyszukiwania blogow z okreslonymi znakami w tytule//zamiana tablicy blogs w dyrektywie v-for z template na filteredBlog
-  computed: {
-    
-  },
+  computed: {},
   //filter locally
   filters: {
     toUppercase(value) {
@@ -57,14 +57,14 @@ export default {
 </script>
 
 <style>
-#show-blogs{
-    max-width: 800px;
-    margin: 0px auto;
+#show-blog {
+  max-width: 800px;
+  margin: 0 auto;
 }
-.single-blog{
-    padding: 20px;
-    margin: 20px 0;
-    box-sizing: border-box;
-    background: #eee;
+.single-blog {
+  padding: 20px;
+  margin: 20px 0;
+  box-sizing: border-box;
+  background-color: greenyellow;
 }
 </style>
